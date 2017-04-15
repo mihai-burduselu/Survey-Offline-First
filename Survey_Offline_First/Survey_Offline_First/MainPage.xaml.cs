@@ -31,8 +31,9 @@ namespace Survey_Offline_First
     {
         // These are the uri and endpoint of a local WebApi
         // Change these when using another API or port.
-        private const string API_URI = "http://localhost:53780/";
-        private const string ENDPOINT = "api/Survey/PostSurvey";
+        private const string API_URI = "http://localhost:";
+        private const string PORT = "53780";
+        private const string ENDPOINT = "/api/Survey/PostSurvey";
         public MainPage()
         {
             this.InitializeComponent();
@@ -120,7 +121,7 @@ namespace Survey_Offline_First
             using (HttpClient httpClient = new HttpClient())
             {
                 // create the header of the POST request
-                httpClient.BaseAddress = new Uri(API_URI);
+                httpClient.BaseAddress = new Uri(API_URI + PORT);
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
                 httpClient.DefaultRequestHeaders.AcceptEncoding.Add(new StringWithQualityHeaderValue("utf-8"));
 
